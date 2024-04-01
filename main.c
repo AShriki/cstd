@@ -1,30 +1,35 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "lineartypes.h"
-
-
 typedef struct myNodeA {
     int a;
     double b;
     float c;
-    char d[20];
+    char * d;
 } MyNodeTypeA;
 
 typedef struct myNodeB {
     double b;
 } MyNodeTypeB;
 
-LinearNodeType(MyNodeTypeA);
 LinearNodeContainerType(MyNodeTypeA);
 
 int main(){
+    char * s = "aaa";
     LinearNodeContainer(MyNodeTypeA) mylist;
-    LinearNode(MyNodeTypeA) mynodea;
-    LinearNode(MyNodeTypeA) mynodec;
-    MyNodeTypeA cd = {1,2.5,3.3,"cba"};
-    MyNodeTypeA mn = {1,2.2,3.3,"abc"};
-    mynodea.data = &cd;
-    mynodec.data = &mn;
-    printf("Hello, world A! %s\n", mynodea.data->d);
-    // printf("Hello, world C! %f\n", mynodec.data->b);
+    MyNodeTypeA a = {1,2.3,4.5,"cba"};
+    MyNodeTypeA b = {6,7.8,9.10,"abc"};
+    MyNodeTypeA *c = malloc(sizeof(MyNodeTypeA));
+    memcpy(c,&b,sizeof(MyNodeTypeA));
+    b.d = s;
+    printf("here\n");
+    pushRight(&mylist,&a,sizeof(MyNodeTypeA));
+    // pushRight(&mylist,&b,sizeof(MyNodeTypeA));
+    // pushRight(&mylist,c,sizeof(MyNodeTypeA));
+    // printf("%d\n",mylist.count);
+    // printf("%s\n",mylist.head->data->d);
+    // printf("%s\n",mylist.head->next->data->d);
+    // printf("%s\n",mylist.head->next->next->data->d);
     return 0;
 }

@@ -15,21 +15,30 @@ typedef struct myNodeB {
 
 LinearNodeContainerType(MyNodeTypeA);
 
+typedef struct linearnode{
+    void * data;
+    struct linearnode * next;
+    struct linearnode * previous;
+    int value;
+}LinNode;
+
+typedef struct linearnodecontainer{
+    LinNode * head;
+    LinNode * tail;
+    int count;
+}LinContainer;
+
 int main(){
-    char * s = "aaa";
     LinearNodeContainer(MyNodeTypeA) mylist;
     MyNodeTypeA a = {1,2.3,4.5,"cba"};
-    MyNodeTypeA b = {6,7.8,9.10,"abc"};
-    MyNodeTypeA *c = malloc(sizeof(MyNodeTypeA));
-    memcpy(c,&b,sizeof(MyNodeTypeA));
-    b.d = s;
-    printf("here\n");
+    MyNodeTypeA b = {6,7.8,9.10,"aaa"};
+    MyNodeTypeA c = {11,12.13,14.15,"abca"};
     pushRight(&mylist,&a,sizeof(MyNodeTypeA));
-    // pushRight(&mylist,&b,sizeof(MyNodeTypeA));
-    // pushRight(&mylist,c,sizeof(MyNodeTypeA));
-    // printf("%d\n",mylist.count);
-    // printf("%s\n",mylist.head->data->d);
-    // printf("%s\n",mylist.head->next->data->d);
-    // printf("%s\n",mylist.head->next->next->data->d);
+    pushRight(&mylist,&b,sizeof(MyNodeTypeA));
+    pushRight(&mylist,&c,sizeof(MyNodeTypeA));
+    printf("%d\n",mylist.count);
+    printf("%s\n",mylist.head->data->d);
+    printf("%s\n",mylist.head->next->data->d);
+    printf("%s\n",mylist.head->next->next->data->d);
     return 0;
 }

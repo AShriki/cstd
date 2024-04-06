@@ -74,9 +74,12 @@ int pushLeft(void *container, void * data){
     tmp_container->count += 1;
     return 0;
 }
-int find(void *container, int value){
-
-}
-void delete(void *container, int value){
-
+int delete(void * container){
+    LinContainer * tmp_container = (LinContainer *)container;
+    int c = tmp_container->count;
+    for (int i = 0; i < c; i++){
+        LinNode tmp;
+        popLeft(tmp_container,&tmp);
+    }
+    return 0;
 }

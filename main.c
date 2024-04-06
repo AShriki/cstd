@@ -21,11 +21,6 @@ int main(){
         MyNodeTypeA a = {i,2.+i/10,i+i/10,"aaa"};
         pushRight(&mylist,&a);
     }
-    int c = mylist.count;
-    for (int i = 0; i < c; i++){
-        MyNodeTypeA tmp;
-        popLeft(&mylist,&tmp);
-        printf("%d\n",tmp.a);
-    }
+    delete(&mylist);
     return 0;
 }

@@ -71,5 +71,6 @@ int pushRight(void *container, void * data);
 int pushLeft(void *container, void * data);
 int popRight(void * container, void * data);
 int popleft(void * container, void * data);
+int delete(void * container);
 // LIST ACTIONS ^^^
 #endif

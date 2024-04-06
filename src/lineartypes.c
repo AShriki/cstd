@@ -1,4 +1,4 @@
-#include "include/lineartypes.h"
+#include "lineartypes.h"
 #include <string.h>
 int popRight(void * container, void * data){
     LinContainer * tmp_container = (LinContainer *)container;
